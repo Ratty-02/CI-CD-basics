@@ -23,3 +23,7 @@ jobs:
 
       - name: Run automated tests
         run: python -m pytest -v
+
+
+      - name: Build docker image
+        run: docker build -t iris    .
