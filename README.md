@@ -64,7 +64,7 @@ fastapi-ml-serving/
 ├── requirements.txt
 └── train.py
 
-The exact files may differ if you have added or renamed files locally.
+
 
 Prerequisites
 
