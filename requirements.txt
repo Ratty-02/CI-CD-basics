@@ -4,3 +4,5 @@ scikit-learn
 joblib
 pytest
 httpx
+prometheus-client
+prometheus-fastapi-instrumentator

@@ -3,10 +3,15 @@ import os
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from prometheus_fastapi_instrumentator import Instrumentator
 
-PORT=int(os.getenv("PORT","8000"))
-# Create the FastAPI app
+PORT = int(os.getenv("PORT", "8000"))
+
+# Create the FastAPI application
 app = FastAPI()
+
+# Configure Prometheus monitoring
+Instrumentator().instrument(app).expose(app)
 
 
 # Define input features
@@ -41,4 +46,3 @@ def predict(data: PredictionRequest):
     prediction = model.predict(features)
 
     return {"prediction": int(prediction[0])}
-

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: iris-ml-api
+
+spec:
+  replicas: 1
+
+  selector:        #identifies the pods that belong to this deployment
+    matchLabels:
+      app: iris-ml-api
+
+  template:         # specifies the pod template used by this deployment
+    metadata:
+      labels:
+        app: iris-ml-api
+
+    spec:           #specifies the pod specification, which defines the containers and other resources that make up the pod
+      containers:
+        - name: iris-ml-api
+          image: iris-ml-api:v1
+          imagePullPolicy: IfNotPresent
+
+          ports:     #specifies the ports that the container exposes
+            - containerPort: 8000
